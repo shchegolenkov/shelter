@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 160%;
+  min-width: 1280px;
+  color: #4c4c4c;
+}
+
+.button {
+  background-color: #f1cdb3;
+  color: #292929;
+  padding: 15px 45px;
+  border-radius: 100px;
+  font-family: "Georgia";
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.background-wrapper {
+  background: url(../img/noise_lines_transparent.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%) #211f20;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header-section {
+  padding: 60px 0px;
+}
+
+.header-wrapper {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo__title {
+  font-family: "Georgia";
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 35px;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+.logo__subtitle {
+  font-family: "Arial";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.header-nav {
+  width: 443px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header-nav__list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.header-nav__item {
+  list-style-type: none;
+}
+
+.header-nav__link {
+  display: inline-block;
+  min-height: 24px;
+  color: #cdcdcd;
+  text-decoration: none;
+}
+
+.header-nav__link--active {
+  color: #fff;
+  border-bottom: 3px solid #f1cdb3;
+}
+
+.section {
+}
+
+.section-not-only {
+}
+
+.section-not-only__wrapper {
+  min-height: 728px;
+  background: url(../img/start-screen-puppy.png) no-repeat right bottom;
+}
+
+.section-not-only__text {
+  margin-bottom: 42px;
+  color: #cdcdcd;
+}
+
+.section-wrapper {
+}
+
+.section-not-only__content-block {
+  width: 460px;
+  padding-top: 163px;
+}
+
+.header {
+  font-family: "Georgia";
+  font-weight: 400;
+}
+
+.main-header {
+  font-size: 44px;
+  line-height: 130%;
+  margin: 0px 150px 42px 0px;
+  color: #fff;
+}
+
+.text {
+}
+.section-about {
+}
+.section-our-friends {
+}
+.slider {
+}
+.slider__cards {
+}
+.slider__card {
+}
+.slider__card-image {
+}
+.slider__card-description {
+}
+.slider__card-text {
+}
+.section-help {
+}
+.categories-block {
+}
+.category-card {
+}
+.category-card__icon-block {
+}
+.category-card__icon {
+}
+.section-in-addition {
+}
+.image-wrapper {
+}
+.content-wrapper {
+}
+.bank-card {
+}
+.description {
+}
+.footer-container {
+}
+.footer-column {
+}
+.footer-email {
+}
+.footer-phone {
+}
+.footer-location {
+}

@@ -15,12 +15,14 @@ html {
   color: #292929;
   padding: 15px 45px;
   border-radius: 100px;
+  text-align: center;
   font-family: "Georgia";
   font-weight: 400;
   font-size: 17px;
   line-height: 130%;
   letter-spacing: 0.06em;
   cursor: pointer;
+  border: none;
 }
 
 .background-wrapper {
@@ -32,6 +34,18 @@ html {
   width: 1200px;
   margin: 0 auto;
 }
+
+.header {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-family: "Georgia";
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+}
+
+/* Header section */
 
 .header-section {
   padding: 60px 0px;
@@ -102,6 +116,8 @@ html {
 .section-not-only {
 }
 
+/* Not only section */
+
 .section-not-only__wrapper {
   min-height: 728px;
   background: url(../img/start-screen-puppy.png) no-repeat right bottom;
@@ -112,43 +128,120 @@ html {
   color: #cdcdcd;
 }
 
-.section-wrapper {
-}
-
 .section-not-only__content-block {
   width: 460px;
   padding-top: 163px;
 }
 
-.header {
-  font-family: "Georgia";
-  font-weight: 400;
-}
-
 .main-header {
   font-size: 44px;
-  line-height: 130%;
   margin: 0px 150px 42px 0px;
   color: #fff;
+  letter-spacing: normal;
+}
+
+/* About section */
+
+.section-about-wrapper {
+  width: 850px;
+  margin: 0 auto;
+  padding: 80px 0px 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-about-image {
+  margin: auto;
+}
+
+.section-about-text-block {
+  margin-top: 14px;
+  width: 380px;
+}
+
+/* Our friends section */
+
+.section-our-friends {
+  padding: 80px 0px 100px;
+  background-color: #f6f6f6;
+}
+
+.section-our-friends__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-our-friends__header {
+  width: 400px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.slider__cards {
+  width: 990px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider__card {
+  width: 270px;
+  border-radius: 9px;
+  background: #fafafa;
+}
+
+.slider__card-text {
+  margin: 30px 0px;
+  font-family: "Georgia";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #545454;
+}
+
+.slider__card-open-button {
+  display: block;
+  width: 187px;
+  min-height: 52px;
+  margin: 0 auto 30px;
+  padding: 0;
+  border: 2px solid #f1cdb3;
+  background-color: transparent;
+}
+
+.section-our-friends__button {
+  display: block;
+  max-width: 261px;
+  padding: 15px 40px;
+}
+
+.slider__button {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #f1cdb3;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .text {
 }
 .section-about {
 }
-.section-our-friends {
-}
-.slider {
-}
-.slider__cards {
-}
-.slider__card {
-}
+
 .slider__card-image {
 }
 .slider__card-description {
-}
-.slider__card-text {
 }
 .section-help {
 }

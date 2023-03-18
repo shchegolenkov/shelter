@@ -16,7 +16,7 @@ html {
   padding: 15px 45px;
   border-radius: 100px;
   text-align: center;
-  font-family: "Georgia";
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 130%;
@@ -33,12 +33,13 @@ html {
 .wrapper {
   width: 1200px;
   margin: 0 auto;
+  padding: 80px 0px 100px;
 }
 
 .header {
   margin-top: 0;
   margin-bottom: 25px;
-  font-family: "Georgia";
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 35px;
   line-height: 130%;
@@ -53,6 +54,7 @@ html {
 
 .header-wrapper {
   height: 60px;
+  padding: 0px;
   display: flex;
   justify-content: space-between;
 }
@@ -65,7 +67,7 @@ html {
 }
 
 .logo__title {
-  font-family: "Georgia";
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 32px;
   line-height: 35px;
@@ -120,6 +122,7 @@ html {
 
 .section-not-only__wrapper {
   min-height: 728px;
+  padding: 0px;
   background: url(../img/start-screen-puppy.png) no-repeat right bottom;
 }
 
@@ -145,9 +148,13 @@ html {
 .section-about-wrapper {
   width: 850px;
   margin: 0 auto;
-  padding: 80px 0px 100px;
+  padding-bottom: 88px;
   display: flex;
   justify-content: space-between;
+}
+
+.section-about__header {
+  margin-right: 60px;
 }
 
 .section-about-image {
@@ -156,17 +163,21 @@ html {
 
 .section-about-text-block {
   margin-top: 14px;
-  width: 380px;
+  width: 430px;
+}
+
+.section-about__text {
+  margin-bottom: 25px;
 }
 
 /* Our friends section */
 
 .section-our-friends {
-  padding: 80px 0px 100px;
   background-color: #f6f6f6;
 }
 
 .section-our-friends__wrapper {
+  padding: 90px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -199,8 +210,8 @@ html {
 }
 
 .slider__card-text {
-  margin: 30px 0px;
-  font-family: "Georgia";
+  margin: 22px 0px 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
@@ -221,7 +232,7 @@ html {
 
 .section-our-friends__button {
   display: block;
-  max-width: 261px;
+  width: 261px;
   padding: 15px 40px;
 }
 
@@ -234,35 +245,229 @@ html {
   background-color: transparent;
 }
 
+/* Help section */
+
+.section-help__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-help__header {
+  width: 310px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.categories-block {
+  width: 1030px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 56px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-card__text {
+  margin: 22px 0px 0px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+/* In addition section */
+
+.section-in-addition {
+  background-color: #f6f6f6;
+}
+
+.section-in-addition__wrapper {
+  width: 915px;
+  padding-bottom: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-in-addition__content-wrapper {
+  width: 380px;
+}
+
+.section-in-addition__header {
+  margin-right: 80px;
+  margin-bottom: 16px;
+}
+
+.section-in-addition__bank-header {
+  margin-bottom: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #545454;
+  letter-spacing: 0.06em;
+}
+
+.section-in-addition__bank-card {
+  width: 349px;
+  margin: 0px 0px 20px;
+  padding: 10px 0px 10px 60px;
+  border-radius: 9px;
+  position: relative;
+  background-color: #f1cdb3;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+}
+
+.section-in-addition__bank-card::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 23px;
+  top: 10px;
+  left: 15px;
+  background-image: url(../img/credit-card.svg);
+  z-index: 10;
+}
+
+.section-in-addition__description {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 150%;
+  color: #b2b2b2;
+}
+
+/* Footer */
+
+.footer {
+  background: url(../img/noise_lines_transparent.png),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
+    #211f20;
+}
+
+.footer__wrapper {
+  padding: 56px 0px 66px;
+  position: relative;
+}
+
+.footer__wrapper::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 310px;
+  right: 0px;
+  bottom: 0px;
+  background: url(../img/footer-puppy.png) no-repeat;
+}
+
+.footer__header {
+  margin: 0px;
+  color: #fff;
+}
+
+.footer__container {
+  width: 740px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__column {
+  min-height: 228px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer__column-left {
+  width: 279px;
+}
+
+.footer__column-right {
+  width: 302px;
+}
+
+.footer__contact {
+  margin: 0;
+  position: relative;
+  padding-left: 42px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+}
+
+.footer__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__contact-email {
+  padding-left: 60px;
+}
+
+.footer__contact-email::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 40px;
+  height: 26px;
+  background-image: url(../img/icon-mail.svg);
+}
+
+.footer__contact-phone {
+  padding-left: 60px;
+}
+
+.footer__contact-phone::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 40px;
+  height: 32px;
+  background-image: url(../img/icon-phone.svg);
+}
+
+.footer__contact-location::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 22px;
+  height: 32px;
+  background-image: url(../img/icon-marker.svg);
+}
+
+.footer__contact-location-2::before {
+  top: -3px;
+}
+
 .text {
 }
 .section-about {
 }
-
-.slider__card-image {
-}
-.slider__card-description {
-}
 .section-help {
-}
-.categories-block {
-}
-.category-card {
 }
 .category-card__icon-block {
 }
 .category-card__icon {
 }
-.section-in-addition {
-}
 .image-wrapper {
 }
 .content-wrapper {
 }
-.bank-card {
-}
-.description {
-}
+
 .footer-container {
 }
 .footer-column {

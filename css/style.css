@@ -12,6 +12,7 @@ html {
 }
 
 .button {
+  display: inline-block;
   background-color: #f1cdb3;
   color: #292929;
   padding: 15px 45px;
@@ -215,19 +216,22 @@ html {
 .slider__card {
   width: 270px;
   border-radius: 9px;
-  background: #fafafa;
+  background-color: #fafafa;
+  transition: 0.4s;
 }
 
 .slider__card:hover {
   cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .slider__card-image-block {
-  transition: background-color 0.4s;
+  height: 270px;
 }
 
-.slider__card:hover .slider__card-image-block {
-  background-color: #f9f8f8;
+.slider__card-description {
+  transition: background-color 0.4s;
 }
 
 .slider__card-image {
@@ -235,7 +239,7 @@ html {
 }
 
 .slider__card-text {
-  margin: 22px 0px 30px;
+  margin: 30px 0px 30px;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   font-size: 20px;
@@ -353,7 +357,7 @@ html {
 .section-in-addition__bank-card {
   display: inline-block;
   width: 349px;
-  margin: 0px 0px 20px;
+  margin: 0px 0px 8px;
   padding: 10px 0px 10px 60px;
   border-radius: 9px;
   position: relative;
@@ -365,6 +369,7 @@ html {
   font-weight: 400;
   font-size: 20px;
   line-height: 115%;
+  transition: background-color 0.4s;
 }
 
 .section-in-addition__bank-card::before {
@@ -376,6 +381,10 @@ html {
   left: 15px;
   background-image: url(../img/credit-card.svg);
   z-index: 10;
+}
+
+.section-in-addition__bank-card:hover {
+  background-color: #fddcc4;
 }
 
 .section-in-addition__description {
@@ -446,6 +455,11 @@ html {
   line-height: 115%;
   letter-spacing: 0.06em;
   text-decoration: none;
+  transition: color 0.4s;
+}
+
+.footer__contact:hover {
+  color: #fce2cf;
 }
 
 .footer__contact-email {
@@ -488,34 +502,4 @@ html {
 
 .footer__contact-location-2::before {
   top: -3px;
-}
-
-.section {
-}
-.section-not-only {
-}
-.text {
-}
-.section-about {
-}
-.section-help {
-}
-.category-card__icon-block {
-}
-.category-card__icon {
-}
-.image-wrapper {
-}
-.content-wrapper {
-}
-
-.footer-container {
-}
-.footer-column {
-}
-.footer-email {
-}
-.footer-phone {
-}
-.footer-location {
 }

@@ -2,21 +2,21 @@
   font-family: "Arial";
   font-style: normal;
   font-weight: 400;
-  src: local("Arial"), url("/fonts/arial-regular.woff2") format("woff2");
+  src: local("Arial"), url("../fonts/arial-regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Arial";
   font-style: italic;
   font-weight: 400;
-  src: local("Arial Italic"), url("/fonts/arial-italic.woff2") format("woff2");
+  src: local("Arial Italic"), url("../fonts/arial-italic.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
-  src: local("Georgia"), url("/fonts/georgia-regular.woff2") format("woff2");
+  src: local("Georgia"), url("../fonts/georgia-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -24,14 +24,14 @@
   font-style: italic;
   font-weight: 400;
   src: local("Georgia Italic"),
-    url("/fonts/georgia-italic.woff2") format("woff2");
+    url("../fonts/georgia-italic.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Georgia";
   font-style: normal;
   font-weight: 700;
-  src: local("Georgia Bold"), url("/fonts/georgia-italic.woff2") format("woff2");
+  src: local("Georgia Bold"), url("../fonts/georgia-bold.woff2") format("woff2");
 }
 
 * {
@@ -45,6 +45,10 @@ html {
   min-width: 1280px;
   color: #4c4c4c;
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
 }
 
 .button {
@@ -69,6 +73,11 @@ html {
   background-color: #fddcc4;
 }
 
+.background-wrapper {
+  background: url(../img/noise_lines_transparent.png),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%) #211f20;
+}
+
 .wrapper {
   width: 1200px;
   margin: 0 auto;
@@ -88,7 +97,7 @@ html {
 /* Header section */
 
 .header-section {
-  padding: 30px 0px;
+  padding: 30px 0px 90px;
 }
 
 .header-wrapper {
@@ -112,7 +121,7 @@ html {
   font-size: 32px;
   line-height: 35px;
   letter-spacing: 0.06em;
-  color: #545454;
+  color: #f1cdb3;
 }
 .logo__subtitle {
   font-family: "Arial";
@@ -120,7 +129,7 @@ html {
   font-size: 13px;
   line-height: 15px;
   letter-spacing: 0.1em;
-  color: #292929;
+  color: #fff;
 }
 
 .header-nav {
@@ -143,20 +152,72 @@ html {
 .header-nav__link {
   display: inline-block;
   min-height: 24px;
-  color: #545454;
+  color: #cdcdcd;
   text-decoration: none;
   transition: color 0.4s;
 }
 
 .header-nav__link:hover {
-  color: #292929;
+  color: #fafafa;
 }
 
 .header-nav__link--active {
-  color: #292929;
+  color: #fff;
   border-bottom: 3px solid #f1cdb3;
   pointer-events: none;
   cursor: default;
+}
+
+/* Not only section */
+
+.section-not-only__wrapper {
+  min-height: 728px;
+  padding: 0px;
+  background: url(../img/start-screen-puppy.png) no-repeat right bottom;
+}
+
+.section-not-only__text {
+  margin-bottom: 42px;
+  color: #cdcdcd;
+}
+
+.section-not-only__content-block {
+  width: 460px;
+  padding-top: 163px;
+}
+
+.main-header {
+  font-size: 44px;
+  margin: 0px 150px 42px 0px;
+  color: #fff;
+  letter-spacing: normal;
+}
+
+/* About section */
+
+.section-about-wrapper {
+  width: 850px;
+  margin: 0 auto;
+  padding-bottom: 88px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-about__header {
+  margin-right: 60px;
+}
+
+.section-about-image {
+  margin: auto;
+}
+
+.section-about-text-block {
+  margin-top: 14px;
+  width: 430px;
+}
+
+.section-about__text {
+  margin-bottom: 25px;
 }
 
 /* Our friends section */
@@ -166,7 +227,7 @@ html {
 }
 
 .section-our-friends__wrapper {
-  padding: 80px 0px 99px;
+  padding: 80px 0px 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,28 +235,27 @@ html {
 
 .section-our-friends__header {
   width: 400px;
-  margin: 0 auto 45px;
+  margin: 0 auto 60px;
   text-align: center;
 }
 
 .slider {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 60px;
   align-items: center;
   width: 100%;
 }
 
 .slider__cards {
+  width: 990px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .slider__card {
   width: 270px;
   border-radius: 9px;
-  margin: 15px 0px;
   background-color: #fafafa;
   overflow: hidden;
   transition: 0.4s;
@@ -246,8 +306,10 @@ html {
   border-color: #fddcc4;
 }
 
-.slider__buttons-block {
-  margin-top: 45px;
+.section-our-friends__button {
+  display: block;
+  width: 261px;
+  padding: 15px 40px;
 }
 
 .slider__button {
@@ -257,42 +319,135 @@ html {
   border: 2px solid #f1cdb3;
   cursor: pointer;
   background-color: transparent;
-  font-family: "Georgia";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 115%;
-  letter-spacing: 0.06em;
-  color: #292929;
-  margin: 0px 8px;
   transition: background-color 0.4s;
 }
 
-.slider__button:not(.slider__button--disabled):hover {
+.slider__button:hover {
   background-color: #fddcc4;
   border-color: #fddcc4;
 }
 
-.slider__button:not(.slider__button--disabled):active {
+.slider__button:active {
   background-color: #f1cdb3;
   border-color: #f1cdb3;
 }
 
-.slider__button--disabled {
-  color: #cdcdcd;
-  border-color: #cdcdcd;
-  cursor: default;
+/* Help section */
+
+.section-help__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.slider__page {
-  background: #f1cdb3;
-  border: none;
+.section-help__header {
+  width: 310px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.categories-block {
+  width: 1030px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 56px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-card__text {
+  margin: 22px 0px 0px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+}
+
+/* In addition section */
+
+.section-in-addition {
+  background-color: #f6f6f6;
+}
+
+.section-in-addition__wrapper {
+  width: 915px;
+  padding-bottom: 87px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-in-addition__image-wrapper {
+  margin-bottom: 5px;
+}
+
+.section-in-addition__content-wrapper {
+  width: 380px;
+}
+
+.section-in-addition__header {
+  margin-right: 80px;
+  margin-bottom: 16px;
+}
+
+.section-in-addition__bank-header {
+  margin-bottom: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #545454;
+  letter-spacing: 0.06em;
+}
+
+.section-in-addition__bank-card {
+  display: inline-block;
+  width: 349px;
+  margin: 0px 0px 8px;
+  padding: 10px 0px 10px 60px;
+  border-radius: 9px;
+  position: relative;
+  background-color: #f1cdb3;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+  color: inherit;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 115%;
+  transition: background-color 0.4s;
+}
+
+.section-in-addition__bank-card::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 23px;
+  top: 10px;
+  left: 15px;
+  background-image: url(../img/credit-card.svg);
+  z-index: 10;
+}
+
+.section-in-addition__bank-card:hover {
+  background-color: #fddcc4;
+}
+
+.section-in-addition__description {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 150%;
+  color: #b2b2b2;
 }
 
 /* Footer */
 
 .footer {
-  background: url(/img/noise_lines_transparent.png),
+  background: url(../img/noise_lines_transparent.png),
     radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%),
     #211f20;
 }
@@ -309,7 +464,7 @@ html {
   height: 310px;
   right: 0px;
   bottom: 0px;
-  background: url(/img/footer-puppy.png) no-repeat;
+  background: url(../img/footer-puppy.png) no-repeat;
 }
 
 .footer__header {
@@ -368,7 +523,7 @@ html {
   left: 0;
   width: 40px;
   height: 26px;
-  background-image: url(/img/icon-mail.svg);
+  background-image: url(../img/icon-mail.svg);
 }
 
 .footer__contact-phone {
@@ -382,7 +537,7 @@ html {
   left: 0;
   width: 40px;
   height: 32px;
-  background-image: url(/img/icon-phone.svg);
+  background-image: url(../img/icon-phone.svg);
 }
 
 .footer__contact-location::before {
@@ -392,7 +547,7 @@ html {
   left: 0;
   width: 22px;
   height: 32px;
-  background-image: url(/img/icon-marker.svg);
+  background-image: url(../img/icon-marker.svg);
 }
 
 .footer__contact-location-2::before {

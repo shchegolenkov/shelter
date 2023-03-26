@@ -160,7 +160,7 @@ body {
 }
 
 .header-nav__link--active {
-  color: #292929;
+  color: #545454;
   border-bottom: 3px solid #f1cdb3;
   pointer-events: none;
   cursor: default;

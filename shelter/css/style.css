@@ -39,7 +39,6 @@
 }
 
 html {
-  min-width: 320px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 160%;
@@ -49,6 +48,7 @@ html {
 
 body {
   margin: 0;
+  min-width: 320px;
 }
 
 img {
@@ -681,10 +681,6 @@ img {
 }
 
 @media (max-width: 768px) {
-  .slider__cards {
-    width: 270px;
-  }
-
   .header-wrapper {
     width: 87.5%;
   }
@@ -705,6 +701,10 @@ img {
 
   .header-nav__list {
     display: none;
+  }
+
+  .slider__cards {
+    width: 270px;
   }
 
   .footer__header {

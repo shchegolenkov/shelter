@@ -459,7 +459,7 @@ body {
   }
 
   .slider__buttons-block {
-    margin-top: 27px;
+    margin-top: 25px;
   }
 
   .footer__container {
@@ -468,7 +468,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-wrapper {
     width: 87.5%;
   }
@@ -509,9 +509,10 @@ body {
   }
 
   .slider__buttons-block {
-    width: 100%;
+    width: 300px;
     display: flex;
     justify-content: space-between;
+    margin-top: 27px;
   }
 
   .slider__button {

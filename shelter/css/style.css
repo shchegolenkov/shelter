@@ -55,6 +55,10 @@ img {
   max-width: 100%;
 }
 
+.body--scroll-disabled {
+  overflow: hidden;
+}
+
 .button {
   display: inline-block;
   background-color: #f1cdb3;
@@ -757,6 +761,12 @@ img {
 
   .footer__header {
     font-size: 25px;
+  }
+}
+
+@media (max-width: 767px) and (hover: hover) {
+  .body--scroll-disabled {
+    padding-right: 17px;
   }
 }
 

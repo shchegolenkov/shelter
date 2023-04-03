@@ -5,8 +5,6 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuLinkList = document.querySelector(".header-nav__list");
 const backgroundOverlay = document.querySelector(".background-overlay");
 
-mobileMenuButton.addEventListener("click", mobileMenuToggle);
-
 function mobileMenuToggle() {
   mobileMenuButton.classList.toggle("mobile-menu-icon--active");
   mobileMenu.classList.toggle("mobile-menu--active");
@@ -20,7 +18,16 @@ function mobileMenuToggle() {
       mobileMenuToggle();
     }
   });
+
+  // Close menu when click outside menu:
+  window.addEventListener("click", function (e) {
+    if (e.target.classList.contains("background-overlay")) {
+      mobileMenuToggle();
+    }
+  });
 }
+
+mobileMenuButton.addEventListener("click", mobileMenuToggle);
 
 window.addEventListener("keydown", function (e) {
   // Close menu by escape button:
@@ -31,6 +38,8 @@ window.addEventListener("keydown", function (e) {
     mobileMenuToggle();
 });
 
+/*
 window.addEventListener("click", function (e) {
   console.log(e.target.classList);
 });
+*/

@@ -268,15 +268,29 @@ img {
   width: 100%;
 }
 
-.slider__cards {
+.slider__cards-wrapper {
   width: 990px;
+  overflow: hidden;
+}
+
+.slider__cards {
+  position: relative;
+  left: -1080px;
   display: flex;
   justify-content: space-between;
+  column-gap: 90px;
+  width: 100%;
+}
+
+.slider__cards-block {
+  display: flex;
+  column-gap: 90px;
 }
 
 .slider__card {
   width: 270px;
   border-radius: 9px;
+  flex-shrink: 0;
   background-color: #fafafa;
   overflow: hidden;
   transition: 0.4s;
@@ -954,4 +968,32 @@ img {
   .header {
     font-size: 25px;
   }
+}
+
+@keyframes slider-left {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes slider-right {
+  from {
+    left: -1080px;
+  }
+  to {
+    left: -2160px;
+  }
+}
+
+.slider-animation-left {
+  animation: slider-left 1s;
+  /* animation-fill-mode: forwards; */
+}
+
+.slider-animation-right {
+  animation: slider-right 1s;
+  /* animation-fill-mode: forwards; */
 }

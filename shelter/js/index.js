@@ -40,6 +40,8 @@ window.addEventListener("keydown", function (e) {
 
 // Slider
 
+import pets from "../json/pets.json" assert { type: "json" };
+
 const slider = document.querySelector(".slider__cards");
 const sliderButtonPrev = document.querySelector(".slider__button-prev");
 const sliderButtonNext = document.querySelector(".slider__button-next");
@@ -50,22 +52,68 @@ let sliderCenterElements = document.querySelector(
 );
 let sliderRightElements = document.querySelector(".slider__cards-block-right");
 
+let uniqueRandomNums = [];
+let oldNums = [];
+
+function getRandomNum(min, max, counter) {
+  oldNums = uniqueRandomNums;
+  uniqueRandomNums = [];
+  let i = 0;
+  let result;
+  while (i < counter) {
+    result = Math.floor(Math.random() * (max - min + 1) + min);
+    if (!uniqueRandomNums.includes(result) && !oldNums.includes(result)) {
+      uniqueRandomNums.push(result);
+      i++;
+    }
+  }
+  return uniqueRandomNums;
+}
+
 sliderButtonPrev.addEventListener("click", sliderMoveLeft);
 sliderButtonNext.addEventListener("click", sliderMoveRight);
 
-function sliderMoveLeft() {
+let sliderButtonPrevious;
+
+function sliderMoveLeft(event) {
   slider.classList.add("slider-animation-left");
   sliderButtonNext.removeEventListener("click", sliderMoveRight);
   sliderButtonPrev.removeEventListener("click", sliderMoveLeft);
+
+  if (sliderButtonPrevious == this || !sliderButtonPrevious) {
+    sliderLeftElements.innerHTML = "";
+    getRandomNum(0, 7, 3);
+    uniqueRandomNums.forEach((num) =>
+      sliderLeftElements.append(createCard(pets[num]))
+    );
+    console.log("new asset left");
+  } else {
+    uniqueRandomNums = oldNums;
+  }
+  console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
+  sliderButtonPrevious = this;
 }
 
 function sliderMoveRight() {
   slider.classList.add("slider-animation-right");
   sliderButtonPrev.removeEventListener("click", sliderMoveLeft);
   sliderButtonNext.removeEventListener("click", sliderMoveRight);
+
+  if (sliderButtonPrevious == this || !sliderButtonPrevious) {
+    sliderRightElements.innerHTML = "";
+    getRandomNum(0, 7, 3);
+    uniqueRandomNums.forEach((num) =>
+      sliderRightElements.append(createCard(pets[num]))
+    );
+    console.log("new asset right");
+  } else {
+    uniqueRandomNums = oldNums;
+  }
+  console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
+  sliderButtonPrevious = this;
 }
 
-function createCard() {
+function createCard(object) {
   const card = document.createElement("div");
   card.classList.add("slider__card");
 
@@ -74,6 +122,8 @@ function createCard() {
 
   const cardImage = document.createElement("img");
   cardImage.classList.add("slider__card-image");
+  cardImage.src = object.img;
+  cardImage.alt = object.name;
 
   cardImageBlock.append(cardImage);
   card.append(cardImageBlock);
@@ -83,7 +133,7 @@ function createCard() {
 
   const cardText = document.createElement("p");
   cardText.classList.add("slider__card-text");
-  cardText.innerText = "pet";
+  cardText.innerText = object.name;
 
   const cardButton = document.createElement("button");
   cardButton.classList.add("button");
@@ -93,16 +143,25 @@ function createCard() {
   cardTextBlock.append(cardText);
   cardTextBlock.append(cardButton);
   card.append(cardTextBlock);
+  card.addEventListener("click", () => console.log("click on card"));
 
-  // li.addEventListener("click", playPauseSelected);
+  return card;
 }
+
+sliderCenterElements.innerHTML = "";
+getRandomNum(0, 7, 3);
+uniqueRandomNums.forEach((num) =>
+  sliderCenterElements.append(createCard(pets[num]))
+);
 
 slider.addEventListener("animationend", (animationEvent) => {
   if (animationEvent.animationName === "slider-left") {
     slider.classList.remove("slider-animation-left");
+    sliderRightElements.innerHTML = sliderCenterElements.innerHTML;
     sliderCenterElements.innerHTML = sliderLeftElements.innerHTML;
   } else if (animationEvent.animationName === "slider-right") {
     slider.classList.remove("slider-animation-right");
+    sliderLeftElements.innerHTML = sliderCenterElements.innerHTML;
     sliderCenterElements.innerHTML = sliderRightElements.innerHTML;
   }
   sliderButtonPrev.addEventListener("click", sliderMoveLeft);

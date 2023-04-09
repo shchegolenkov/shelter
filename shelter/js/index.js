@@ -87,13 +87,11 @@ function sliderMoveLeft(event) {
     uniqueRandomNums.forEach((num) =>
       sliderLeftElements.append(createCard(pets[num]))
     );
-    console.log("new asset left");
   } else {
     tempNums = uniqueRandomNums;
     uniqueRandomNums = oldNums;
     oldNums = tempNums;
   }
-  console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
   sliderButtonPrevious = this;
 }
 
@@ -108,13 +106,11 @@ function sliderMoveRight() {
     uniqueRandomNums.forEach((num) =>
       sliderRightElements.append(createCard(pets[num]))
     );
-    console.log("new asset right");
   } else {
     tempNums = uniqueRandomNums;
     uniqueRandomNums = oldNums;
     oldNums = tempNums;
   }
-  console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
   sliderButtonPrevious = this;
 }
 
@@ -172,6 +168,10 @@ slider.addEventListener("animationend", (animationEvent) => {
   sliderButtonPrev.addEventListener("click", sliderMoveLeft);
   sliderButtonNext.addEventListener("click", sliderMoveRight);
 });
+
+// Popup pet card
+
+const modal = document.querySelector(".modal");
 
 /*
 window.addEventListener("click", function (e) {

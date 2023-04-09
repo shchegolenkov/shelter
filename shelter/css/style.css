@@ -51,12 +51,12 @@ body {
   min-width: 320px;
 }
 
-img {
-  max-width: 100%;
-}
-
 .body--scroll-disabled {
   overflow: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 .button {
@@ -1001,7 +1001,6 @@ img {
   }
 
   .modal-window__text-containter {
-    /* padding: 10px; */
     padding: 3.125%;
   }
 

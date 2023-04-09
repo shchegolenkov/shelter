@@ -54,6 +54,7 @@ let sliderRightElements = document.querySelector(".slider__cards-block-right");
 
 let uniqueRandomNums = [];
 let oldNums = [];
+let tempNums = [];
 
 function getRandomNum(min, max, counter) {
   oldNums = uniqueRandomNums;
@@ -88,7 +89,9 @@ function sliderMoveLeft(event) {
     );
     console.log("new asset left");
   } else {
+    tempNums = uniqueRandomNums;
     uniqueRandomNums = oldNums;
+    oldNums = tempNums;
   }
   console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
   sliderButtonPrevious = this;
@@ -107,7 +110,9 @@ function sliderMoveRight() {
     );
     console.log("new asset right");
   } else {
+    tempNums = uniqueRandomNums;
     uniqueRandomNums = oldNums;
+    oldNums = tempNums;
   }
   console.log("oldNums:", oldNums, "uniqueRandomNums:", uniqueRandomNums);
   sliderButtonPrevious = this;
@@ -171,5 +176,11 @@ slider.addEventListener("animationend", (animationEvent) => {
 /*
 window.addEventListener("click", function (e) {
   console.log(e.target.classList);
+});
+
+
+window.addEventListener("resize", function (event) {
+  windowWidth = window.innerWidth;
+  // console.log(window.innerWidth + " wide");
 });
 */

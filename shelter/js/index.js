@@ -34,8 +34,15 @@ window.addEventListener("keydown", function (e) {
   if (
     mobileMenu.classList.contains("mobile-menu--active") &&
     e.key === "Escape"
-  )
+  ) {
     mobileMenuToggle();
+  }
+  if (
+    document.querySelector(".modal").classList.contains("modal--visible") &&
+    e.key === "Escape"
+  ) {
+    modalClose();
+  }
 });
 
 // Slider
@@ -125,6 +132,7 @@ function createCard(object) {
   cardImage.classList.add("slider__card-image");
   cardImage.src = object.img;
   cardImage.alt = object.name;
+  cardImage.dataset.name = object.name;
 
   cardImageBlock.append(cardImage);
   card.append(cardImageBlock);
@@ -135,16 +143,19 @@ function createCard(object) {
   const cardText = document.createElement("p");
   cardText.classList.add("slider__card-text");
   cardText.innerText = object.name;
+  cardText.dataset.name = object.name;
 
   const cardButton = document.createElement("button");
   cardButton.classList.add("button");
   cardButton.classList.add("slider__card-open-button");
   cardButton.innerText = "Learn more";
+  cardButton.dataset.name = object.name;
 
   cardTextBlock.append(cardText);
   cardTextBlock.append(cardButton);
+  cardTextBlock.dataset.name = object.name;
+  card.dataset.name = object.name;
   card.append(cardTextBlock);
-  card.addEventListener("click", () => console.log("click on card"));
 
   return card;
 }
@@ -172,6 +183,53 @@ slider.addEventListener("animationend", (animationEvent) => {
 // Popup pet card
 
 const modal = document.querySelector(".modal");
+const modalPetImage = document.querySelector(".modal-window__image");
+const modalPetName = document.querySelector(".modal-window__name");
+const modalPetType = document.querySelector(".modal-window__type");
+const modalPetDescription = document.querySelector(
+  ".modal-window__description"
+);
+const modalPetAge = document.querySelector(".feature-age");
+const modalPetInoculations = document.querySelector(".feature-inoculations");
+const modalPetDiseases = document.querySelector(".feature-diseases");
+const modalPetParasites = document.querySelector(".feature-parasites");
+
+function modalOpen() {
+  modal.classList.add("modal--visible");
+  document.body.classList.add("body--scroll-disabled");
+}
+
+function modalClose() {
+  modal.classList.remove("modal--visible");
+  document.body.classList.remove("body--scroll-disabled");
+}
+
+function modalRender(selectedPetName) {
+  const selectedPet = pets.find((pet) => pet.name === selectedPetName);
+
+  modalPetImage.src = selectedPet.img;
+  modalPetImage.alt = selectedPet.name;
+  modalPetName.innerText = selectedPet.name;
+  modalPetType.innerText = `${selectedPet.type} - ${selectedPet.breed}`;
+  modalPetDescription.innerText = selectedPet.description;
+  modalPetAge.innerText = selectedPet.age;
+  modalPetInoculations.innerText = selectedPet.inoculations;
+  modalPetDiseases.innerText = selectedPet.diseases;
+  modalPetParasites.innerText = selectedPet.parasites;
+}
+
+slider.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("slider__cards-block")) {
+    modalRender(e.target.dataset.name);
+    modalOpen();
+  }
+});
+
+document
+  .querySelector(".modal-window__close-button")
+  .addEventListener("click", modalClose);
+
+document.querySelector(".modal-overlay").addEventListener("click", modalClose);
 
 /*
 window.addEventListener("click", function (e) {

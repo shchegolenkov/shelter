@@ -47,7 +47,7 @@ window.addEventListener("keydown", function (e) {
 
 // Popup pet card
 
-import pets from "/shelter/json/pets.json" assert { type: "json" };
+import pets from "../../json/pets.json" assert { type: "json" };
 
 const slider = document.querySelector(".slider__cards");
 
@@ -76,7 +76,7 @@ function modalClose() {
 function modalRender(selectedPetName) {
   const selectedPet = pets.find((pet) => pet.name === selectedPetName);
 
-  modalPetImage.src = selectedPet.img;
+  modalPetImage.src = "../" + selectedPet.img;
   modalPetImage.alt = selectedPet.name;
   modalPetName.innerText = selectedPet.name;
   modalPetType.innerText = `${selectedPet.type} - ${selectedPet.breed}`;
@@ -99,6 +99,126 @@ document
   .addEventListener("click", modalClose);
 
 document.querySelector(".modal-overlay").addEventListener("click", modalClose);
+
+// Pagination
+
+function getRandomNum(min, max, counter) {
+  let uniqueRandomNums = [];
+  let oldNums = [];
+  let i = 0;
+  let result;
+  while (i < counter) {
+    result = Math.floor(Math.random() * (max - min + 1) + min);
+    if (!uniqueRandomNums.includes(result) && !oldNums.includes(result)) {
+      uniqueRandomNums.push(result);
+      i++;
+    }
+  }
+  return uniqueRandomNums;
+}
+
+let variants = [];
+
+function getVariants(array, memory) {
+  let fragmentOfArray;
+  memory = memory || [];
+
+  for (let i = 0; i < array.length; i++) {
+    fragmentOfArray = array.splice(i, 1);
+    if (array.length === 0) {
+      variants.push(memory.concat(fragmentOfArray));
+    }
+    getVariants(array.slice(), memory.concat(fragmentOfArray));
+    array.splice(i, 0, fragmentOfArray[0]);
+  }
+  return variants;
+}
+
+function getCardsOrder() {
+  const uniqueCards = getRandomNum(0, 7, 8);
+  const uniqueCardsPart1 = uniqueCards.slice(0, 3);
+  const uniqueCardsPart2 = uniqueCards.slice(3, 6);
+  const uniqueCardsPart3 = uniqueCards.slice(-2);
+
+  const res1 = getVariants(uniqueCardsPart1);
+  const res2 = getVariants(uniqueCardsPart2);
+  let result = [];
+
+  for (let i = 0; i <= Math.trunc(11 / 2); i++) {
+    res2[i].forEach((num) => {
+      result.push(num);
+    });
+
+    res2[i + Math.ceil(11 / 2)].forEach((num) => {
+      result.push(num);
+    });
+
+    uniqueCardsPart3.forEach((num) => {
+      result.push(num);
+    });
+  }
+  return result;
+}
+
+function createCard(object) {
+  const card = document.createElement("div");
+  card.classList.add("slider__card");
+
+  const cardImageBlock = document.createElement("div");
+  cardImageBlock.classList.add("slider__card-image-block");
+
+  const cardImage = document.createElement("img");
+  cardImage.classList.add("slider__card-image");
+  cardImage.src = "../" + object.img;
+  cardImage.alt = object.name;
+  cardImage.dataset.name = object.name;
+
+  cardImageBlock.append(cardImage);
+  card.append(cardImageBlock);
+
+  const cardTextBlock = document.createElement("div");
+  cardTextBlock.classList.add("slider__card-description");
+
+  const cardText = document.createElement("p");
+  cardText.classList.add("slider__card-text");
+  cardText.innerText = object.name;
+  cardText.dataset.name = object.name;
+
+  const cardButton = document.createElement("button");
+  cardButton.classList.add("button");
+  cardButton.classList.add("slider__card-open-button");
+  cardButton.innerText = "Learn more";
+  cardButton.dataset.name = object.name;
+
+  cardTextBlock.append(cardText);
+  cardTextBlock.append(cardButton);
+  cardTextBlock.dataset.name = object.name;
+  card.dataset.name = object.name;
+  card.append(cardTextBlock);
+
+  return card;
+}
+
+function displayCards(cards, cardsPerPage, currentPage) {
+  const startCard = cardsPerPage * currentPage;
+  const endCard = startCard + cardsPerPage;
+  const visibleCards = cards.slice(startCard, endCard);
+}
+
+function displayCurrentPage() {
+  let currentPage = 1;
+}
+
+function displayPaginationButtons() {}
+
+getCardsOrder().forEach((num) => slider.append(createCard(pets[num])));
+
+// Pagination buttons
+
+const firstPageButton = document.querySelector(".slider__button-first");
+const prevPageButton = document.querySelector(".slider__button-prev");
+const nextPageButton = document.querySelector(".slider__button-next");
+const lastPageButton = document.querySelector(".slider__button-last");
 
 /*
 window.addEventListener("click", function (e) {

@@ -153,12 +153,16 @@ function getCardsOrder() {
       result.push(num);
     });
 
-    uniqueCardsPart3.forEach((num) => {
-      result.push(num);
-    });
+    uniqueCardsPart3
+      .sort((num1, num2) => 0.5 - Math.random())
+      .forEach((num) => {
+        result.push(num);
+      });
   }
   return result;
 }
+
+const cardsOrder = getCardsOrder();
 
 function createCard(object) {
   const card = document.createElement("div");
@@ -199,19 +203,38 @@ function createCard(object) {
   return card;
 }
 
-function displayCards(cards, cardsPerPage, currentPage) {
-  const startCard = cardsPerPage * currentPage;
+let currentPage = 1;
+
+function displayCards(
+  cards = cardsOrder,
+  cardsPerPage = getCardsPerPage(),
+  currPage = currentPage
+) {
+  const startCard = cardsPerPage * (currPage - 1);
   const endCard = startCard + cardsPerPage;
   const visibleCards = cards.slice(startCard, endCard);
+  slider.innerHTML = "";
+  visibleCards.forEach((num) => slider.append(createCard(pets[num])));
 }
 
-function displayCurrentPage() {
-  let currentPage = 1;
+displayCards();
+
+// Get cards per page
+
+function getCardsPerPage() {
+  const windowWidth = window.innerWidth;
+  if (windowWidth < 648) {
+    return 3;
+  } else if (windowWidth <= 1200) {
+    return 6;
+  } else {
+    return 8;
+  }
 }
 
-function displayPaginationButtons() {}
-
-getCardsOrder().forEach((num) => slider.append(createCard(pets[num])));
+function pagesCounter() {
+  return Math.ceil(cardsOrder.length / getCardsPerPage());
+}
 
 // Pagination buttons
 
@@ -220,14 +243,67 @@ const prevPageButton = document.querySelector(".slider__button-prev");
 const nextPageButton = document.querySelector(".slider__button-next");
 const lastPageButton = document.querySelector(".slider__button-last");
 
-/*
-window.addEventListener("click", function (e) {
-  console.log(e.target.classList);
+function displayPaginationButtons() {
+  document.querySelector(".slider__page").innerText = currentPage;
+  if (currentPage === 1) {
+    firstPageButton.classList.add("slider__button--disabled");
+    prevPageButton.classList.add("slider__button--disabled");
+    lastPageButton.classList.remove("slider__button--disabled");
+    nextPageButton.classList.remove("slider__button--disabled");
+  } else if (currentPage === pagesCounter()) {
+    lastPageButton.classList.add("slider__button--disabled");
+    nextPageButton.classList.add("slider__button--disabled");
+    firstPageButton.classList.remove("slider__button--disabled");
+    prevPageButton.classList.remove("slider__button--disabled");
+  } else {
+    document
+      .querySelectorAll(".slider__button")
+      .forEach((button) => button.classList.remove("slider__button--disabled"));
+  }
+}
+
+displayPaginationButtons();
+
+firstPageButton.addEventListener("click", () => {
+  currentPage = 1;
+  displayCards();
+  displayPaginationButtons();
 });
 
-
-window.addEventListener("resize", function (event) {
-  windowWidth = window.innerWidth;
-  // console.log(window.innerWidth + " wide");
+prevPageButton.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    displayCards();
+    displayPaginationButtons();
+  }
 });
-*/
+
+nextPageButton.addEventListener("click", () => {
+  if (currentPage < pagesCounter()) {
+    currentPage++;
+    displayCards();
+    displayPaginationButtons();
+  }
+});
+
+lastPageButton.addEventListener("click", () => {
+  currentPage = pagesCounter();
+  displayCards();
+  displayPaginationButtons();
+});
+
+window.addEventListener("resize", function () {
+  if (currentPage > pagesCounter()) {
+    currentPage = pagesCounter();
+  }
+  displayCards();
+  displayPaginationButtons();
+});
+
+screen.orientation.addEventListener("change", function () {
+  if (currentPage > pagesCounter()) {
+    currentPage = pagesCounter();
+  }
+  displayCards();
+  displayPaginationButtons();
+});

@@ -687,8 +687,12 @@ img {
 
   .header-nav__list {
     flex-direction: column;
-    min-height: 243px;
+    min-height: 327px;
     z-index: 14;
+  }
+
+  .header-nav__item {
+    text-align: center;
   }
 
   .header-nav__link {

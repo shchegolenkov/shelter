@@ -231,14 +231,8 @@ document
 
 document.querySelector(".modal-overlay").addEventListener("click", modalClose);
 
-/*
-window.addEventListener("click", function (e) {
-  console.log(e.target.classList);
-});
+// Self-check
 
-
-window.addEventListener("resize", function (event) {
-  windowWidth = window.innerWidth;
-  // console.log(window.innerWidth + " wide");
-});
-*/
+console.log(
+  "Самооценка 110 баллов из 110:\n1. Реализация burger menu на обеих страницах: +26\n2. Реализация слайдера-карусели на странице Main: +36\n3. Реализация пагинации на странице Pets: +36\n4. Реализация попап на обеих страницах: +12"
+);

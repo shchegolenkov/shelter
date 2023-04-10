@@ -307,3 +307,9 @@ screen.orientation.addEventListener("change", function () {
   displayCards();
   displayPaginationButtons();
 });
+
+// Self-check
+
+console.log(
+  "Самооценка 110 баллов из 110:\n1. Реализация burger menu на обеих страницах: +26\n2. Реализация слайдера-карусели на странице Main: +36\n3. Реализация пагинации на странице Pets: +36\n4. Реализация попап на обеих страницах: +12"
+);
